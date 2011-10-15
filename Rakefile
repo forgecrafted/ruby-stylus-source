@@ -36,8 +36,8 @@ task :update do
   execute 'cleaning up old files', 'rm -rf vendor'
   execute "download stylus #{version}", "wget #{tarball} -O stylus.tgz"
   execute "upacking stylus #{version}", 'tar -zxvf stylus.tgz'
-  execute 'updating stylus dependencies', 'mv package vendor && cd vendor && npm install .'
-  execute 'cleaning up', 'rm stylus.tgz'
+  execute 'cleaning up', 'rm stylus.tgz package/.npmignore'
+  execute 'updating stylus dependencies', 'mv package vendor && cd vendor && npm install . && git add node_modules -f'
   say 'updating VERSION file'
   File.open('VERSION', 'w') { |file| file.write(version) }
   say 'done!'
