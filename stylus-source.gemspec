@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "stylus-source"
-  s.version     = "0.15.4"
+  s.version     = File.read('VERSION')
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["TJ Holowaychuk"]
   s.email       = ["tj@vision-media.ca"]
