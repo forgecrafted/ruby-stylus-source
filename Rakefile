@@ -26,18 +26,13 @@ task :update do
   version = metadata['dist-tags']['latest']
   tarball = metadata['versions'][version]['dist']['tarball']
 
-  if current_version == version
-    say "Stylus #{version} already downloaded."
-    exit(0)
-  end
-
   say "Updating stylus source from #{current_version} to #{version}"
 
   execute 'cleaning up old files', 'rm -rf vendor'
   execute "download stylus #{version}", "wget #{tarball} -O stylus.tgz"
   execute "upacking stylus #{version}", 'tar -zxvf stylus.tgz'
   execute 'cleaning up', 'rm stylus.tgz package/.npmignore'
-  execute 'updating stylus dependencies', 'mv package vendor && cd vendor && npm install . && git add node_modules -f'
+  execute 'updating stylus dependencies', 'mv package vendor && cd vendor && npm install .'
   say 'updating VERSION file'
   File.open('VERSION', 'w') { |file| file.write(version) }
   say 'done!'
