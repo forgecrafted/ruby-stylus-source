@@ -21,7 +21,7 @@ end
 desc "Downloads stylus into './vendor' and checks the latest released tag"
 task :update do
   raw             = open('http://registry.npmjs.org/stylus') { |io| io.binmode.read }
-  metadata        = MultiJson.decode(raw)
+  metadata        = MultiJson.load(raw)
   current_version = File.read('VERSION')
   version         = ENV['VERSION'] || metadata['dist-tags']['latest']
   tarball         = metadata['versions'][version]['dist']['tarball']
