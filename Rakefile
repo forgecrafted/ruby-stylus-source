@@ -18,6 +18,13 @@ def execute(banner, command)
   output
 end
 
+desc 'Updates and releases a the stylus-source gem'
+task ship: :update do
+  current_version = File.read('VERSION')
+  execute 'commiting the VERSION file', "git add VERSION && git commit -m '#{current_version}'"
+  Rake::Task['release'].invoke
+end
+
 desc "Downloads stylus into './vendor' and checks the latest released tag"
 task :update do
   raw             = open('http://registry.npmjs.org/stylus') { |io| io.binmode.read }
