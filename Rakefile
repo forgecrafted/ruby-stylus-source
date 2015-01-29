@@ -18,7 +18,7 @@ def execute(banner, command)
   output
 end
 
-desc 'Updates and releases a the stylus-source gem'
+desc 'Updates and releases the stylus-source gem'
 task ship: :update do
   current_version = File.read('VERSION')
   execute 'commiting the VERSION file', "git add VERSION && git commit -m '#{current_version}'"
