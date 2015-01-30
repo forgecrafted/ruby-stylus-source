@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/forgecrafted/ruby-stylus-source"
   s.summary     = %q{JS source code for Stylus.js}
   s.description = %q{Robust, expressive, and feature-rich CSS superset. This gem packages up stylus for use with the stylus gem.}
+  s.license     = 'MIT'
 
   s.files         = `git ls-files`.split("\n") + Dir["vendor/**/*"]
   s.require_paths = ["lib"]
