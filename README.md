@@ -1,3 +1,3 @@
 # Ruby Stylus Source
 
-https://github.com/LearnBoost/stylus
+https://github.com/stylus/stylus
